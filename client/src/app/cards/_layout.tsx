@@ -1,7 +1,7 @@
-import { Stack } from 'expo-router'
-import { Redirect } from 'expo-router'
-import { useAuthContext } from '../providers/AuthProvider'
-import { usePathname } from 'expo-router'
+import { Stack } from 'expo-router';
+import { Redirect } from 'expo-router';
+import { useAuthContext } from '../providers/AuthProvider';
+import { usePathname } from 'expo-router';
 
 export default function CardsLayout() {
   const { user, loading } = useAuthContext();
@@ -16,5 +16,9 @@ export default function CardsLayout() {
     return <Redirect href="/(auth)/sign-in" />;
   }
 
-  return <Stack />
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+    </Stack>
+  );
 }
